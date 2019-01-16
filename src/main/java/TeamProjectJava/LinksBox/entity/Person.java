@@ -15,20 +15,29 @@ import java.util.LinkedHashSet;
 public class Person {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+
     @NotBlank(message = "firstName cannot be empty")
-    String firstName;
+    @Column (name = "first_name", nullable = false)
+    private String firstName;
+
     @NotBlank(message = "lastName cannot be empty")
-    String lastName;
+    @Column(name = "last_name", nullable = false)
+    private String lastName;
+
     @Email
     @NotBlank(message = "email cannot be empty")
-    String email;
-    @NotBlank(message = "password cannot be empty")
-    String password;
+    @Column(name = "email", nullable = false)
+    private String email;
 
-    @OneToMany(mappedBy = "catalog", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    LinkedHashSet<Catalog> catalogs;
+    @NotBlank(message = "password cannot be empty")
+    @Column(name = "password", nullable = false)
+    private String password;
+
+    @OneToMany(mappedBy = "catalog", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Column(name = "catalog_id", nullable = false)
+    private LinkedHashSet<Catalog> catalogs;
 
     public Person(String firstName, String lastName, @Email String email, String password, LinkedHashSet<Catalog> catalogs) {
         this.firstName = firstName;
