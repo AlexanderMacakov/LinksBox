@@ -16,19 +16,19 @@ public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
     @NotBlank(message = "firstName cannot be empty")
-    String firstName;
+    private String firstName;
     @NotBlank(message = "lastName cannot be empty")
-    String lastName;
+    private String lastName;
     @Email
     @NotBlank(message = "email cannot be empty")
-    String email;
+    private String email;
     @NotBlank(message = "password cannot be empty")
-    String password;
+    private String password;
 
     @OneToMany(mappedBy = "catalog", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    LinkedHashSet<Catalog> catalogs;
+    private LinkedHashSet<Catalog> catalogs;
 
     public Person(String firstName, String lastName, @Email String email, String password, LinkedHashSet<Catalog> catalogs) {
         this.firstName = firstName;
