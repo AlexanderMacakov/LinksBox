@@ -28,6 +28,6 @@ public class Catalog {
     LinkedHashSet<Catalog> catalogs;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    LinkedHashSet<Link> links;
+    LinkedHashSet<Bookmark> links;
 
 }

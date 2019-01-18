@@ -28,7 +28,7 @@ public class Person {
 
     @Email
     @NotBlank(message = "email cannot be empty")
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @NotBlank(message = "password cannot be empty")
