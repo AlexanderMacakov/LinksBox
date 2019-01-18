@@ -35,8 +35,7 @@ public class Person {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "catalog", cascade = CascadeType.ALL, orphanRemoval = true)
-    @Column(name = "catalog_id", nullable = false)
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     private LinkedHashSet<Catalog> catalogs;
 
     public Person(String firstName, String lastName, @Email String email, String password, LinkedHashSet<Catalog> catalogs) {
