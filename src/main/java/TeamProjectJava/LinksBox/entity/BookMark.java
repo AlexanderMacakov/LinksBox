@@ -7,10 +7,10 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "bookMarks")
+@Table(name = "bookmarks")
 @Data
 @NoArgsConstructor
-public class BookMark {
+public class Bookmark {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -30,10 +30,5 @@ public class BookMark {
     @JoinColumn(name = "person_id", nullable = false)
     private Person author;
 
-    public BookMark(String title, String description, String link, Person author) {
-        this.title = title;
-        this.description = description;
-        this.link = link;
-        this.author = author;
-    }
+
 }
