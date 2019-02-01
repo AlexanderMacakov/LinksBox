@@ -1,8 +1,7 @@
 <#import "parts/common.ftl" as c>
-<#import "parts/login.ftl" as log>
+<#import "parts/registerForm.ftl" as reg>
 
 <@c.page>
-Add new user
-${message}
-<@log.login "/registration" />
+<h1>Add new user</h1>
+<@reg.registration "/registration" />
 </@c.page>

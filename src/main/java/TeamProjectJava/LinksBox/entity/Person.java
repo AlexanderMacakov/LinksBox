@@ -35,15 +35,15 @@ public class Person {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "catalog", cascade = CascadeType.ALL, orphanRemoval = true)
-    @Column(name = "catalog_id", nullable = false)
-    private LinkedHashSet<Catalog> catalogs;
+//    @OneToMany(mappedBy = "catalog", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @Column(name = "catalog_id", nullable = false)
+//    private LinkedHashSet<Catalog> catalogs;
 
-    public Person(String firstName, String lastName, @Email String email, String password, LinkedHashSet<Catalog> catalogs) {
+    public Person(String firstName, String lastName, @Email String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.catalogs = catalogs;
+//        this.catalogs = catalogs;
     }
 }
