@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class RegistrationController {
@@ -29,7 +31,7 @@ public class RegistrationController {
             Model model){
         //TODO add logic to verify user
         personRepo.save(new Person(firstname, lastname, email, password));
-        model.addAttribute("message", "User has been successfully added!");
-        return "redirect:/login";
+        model.addAttribute("message", "User has been successfully added! Now you can login.");
+        return "login";
     }
 }

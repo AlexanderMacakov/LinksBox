@@ -2,6 +2,7 @@
 
 <@c.page>
 Main page
-<#--${message}-->
-<a href="/index">Go to start page</a>
+    <#if message??>
+        <div><h3>${message}</h3></div>
+    </#if>
 </@c.page>
