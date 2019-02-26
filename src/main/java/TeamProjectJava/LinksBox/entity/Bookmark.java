@@ -26,9 +26,13 @@ public class Bookmark {
     @Column(name = "link", nullable = false)
     private String link;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "person_id", nullable = false)
-    private Person author;
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "person_id", nullable = false)
+//    private Person author;
+
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "catalog_id", nullable = false)
+//    private Catalog catalog_id;
 
 
 }

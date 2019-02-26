@@ -1,6 +1,7 @@
 package TeamProjectJava.LinksBox.controller;
 
 import TeamProjectJava.LinksBox.entity.Person;
+import TeamProjectJava.LinksBox.repos.CatalogRepo;
 import TeamProjectJava.LinksBox.repos.PersonRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,9 @@ public class RegistrationController {
     @Autowired
     private PersonRepo personRepo;
 
+    @Autowired
+    private CatalogRepo catalogRepo;
+
     @GetMapping("/registration")
     public String registration(){
         return "registration";
@@ -30,7 +34,9 @@ public class RegistrationController {
             @RequestParam("password") String password,
             Model model){
         //TODO add logic to verify user
-        personRepo.save(new Person(firstname, lastname, email, password));
+        Person person = new Person(firstname, lastname, email, password);
+        person.addAllCatalogs();
+        personRepo.save(person);
         model.addAttribute("message", "User has been successfully added! Now you can login.");
         return "login";
     }
